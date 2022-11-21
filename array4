@@ -12,25 +12,25 @@ namespace ConsoleApp1
         {
 
             string a;
+            Console.Write("Введите оценки(4 шт - 2,3,4,5): ");
             a = Console.ReadLine();
             string[] stroki = a.Split(',', ' ');
-           
-            int count = 0, temp;
-            temp = stroki.Length-1;
-            
+            int count = 0, temp, temp1 = 0, temp2 =0;
+            temp = stroki.Length;
             for (int i = 0; i <= stroki.Length; i++)
             {
-                if (a[i] == '2')
+                temp2++;
+                if (stroki[i] == "2")
                 {
                     Console.WriteLine("Ну что, студент, пора долг Родине отдать");
                     break;
                 }
-                
-                if (a[i] == '3')
+               
+                if (stroki[i] == "3")
                 {
                     for (int j = 0; j < stroki.Length; j++)
                     {
-                        if (a[j] == '2')
+                        if (stroki[j] == "2")
                         {
                             Console.WriteLine("Ну что, студент, пора долг Родине отдать");
                             break;
@@ -40,15 +40,15 @@ namespace ConsoleApp1
                             temp1++;
                         }
                     }
-                   
-                    if (temp1 == temp+1)
+                    
+                    if (temp1 == temp)
                     {
                         Console.WriteLine("Прощай стипендия!");
                     }
                     break;
                 }
                 
-                if (temp ==i)
+                if (temp == temp2)
                 {
                     
                     for (int f = 0; f < stroki.Length; f++)
@@ -60,11 +60,11 @@ namespace ConsoleApp1
                         }
                         
                     }
-                 
-                    if (count == temp+1)
-                        {
-                            Console.WriteLine("О, отличник появился! На олимпиаду пойдешь");
-                        }
+                    
+                    if (count == temp)
+                    {
+                        Console.WriteLine("О, отличник появился! На олимпиаду пойдешь");
+                    }
                     else
                     {
                         Console.WriteLine("Живи пока, через полгода увидимся");
