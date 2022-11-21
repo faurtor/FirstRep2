@@ -30,12 +30,20 @@ namespace ConsoleApp1
                 {
                     for (int j = 0; j < stroki.Length; j++)
                     {
-                        if (a[j] != '2')
+                        if (a[j] == '2')
                         {
-                            Console.WriteLine("Прощай стипендия!");
-                            count++;
+                            Console.WriteLine("Ну что, студент, пора долг Родине отдать");
                             break;
                         }
+                        else
+                        {
+                            temp1++;
+                        }
+                    }
+                   
+                    if (temp1 == temp+1)
+                    {
+                        Console.WriteLine("Прощай стипендия!");
                     }
                     break;
                 }
