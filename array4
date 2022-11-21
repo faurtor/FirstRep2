@@ -1,0 +1,69 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+
+            string a;
+            a = Console.ReadLine();
+            string[] stroki = a.Split(',', ' ');
+           
+            int count = 0, temp;
+            temp = stroki.Length-1;
+            
+            for (int i = 0; i <= stroki.Length; i++)
+            {
+                if (a[i] == '2')
+                {
+                    Console.WriteLine("Ну что, студент, пора долг Родине отдать");
+                    break;
+                }
+                
+                if (a[i] == '3')
+                {
+                    for (int j = 0; j < stroki.Length; j++)
+                    {
+                        if (a[j] != '2')
+                        {
+                            Console.WriteLine("Прощай стипендия!");
+                            count++;
+                            break;
+                        }
+                    }
+                    break;
+                }
+                
+                if (temp ==i)
+                {
+                    
+                    for (int f = 0; f < stroki.Length; f++)
+                    {
+                        if (stroki[f] == "5")
+                        {
+                            count++;
+                            
+                        }
+                        
+                    }
+                 
+                    if (count == temp+1)
+                        {
+                            Console.WriteLine("О, отличник появился! На олимпиаду пойдешь");
+                        }
+                    else
+                    {
+                        Console.WriteLine("Живи пока, через полгода увидимся");
+                    }
+                    break;
+                }
+            }
+        }
+    }
+}
