@@ -1,0 +1,49 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1met
+{
+    class Program
+    {
+        static int[] Factorize(int x)
+        {
+            int ix = 0; // индекс
+            int size = 100;
+            int[] numbers = new int[size];
+            int i = 1, k; /*i это переменна хранящая число-делитель // k это переменная хранящая ответ после деления на i*/
+            while (i * i <= x)
+            {
+                if ((x % i) == 0)
+                {
+                    if (ix >= size) { Array.Resize(ref numbers, numbers.Length + size); }
+                    numbers[ix++] = i;
+                    k = x / i;
+                    if (k != i)
+                    {
+                        if (ix >= size) { Array.Resize(ref numbers, numbers.Length + size); }
+                    }
+                    numbers[ix++] = k;
+                }
+                i++;
+            }
+            Array.Resize(ref numbers, ix);
+            return numbers;
+        }
+        static void Main(string[] args)
+        {
+            int n = int.Parse(Console.ReadLine());
+            int[] arr = Factorize(n);
+            int k = arr.Length;
+            for (int i = 0; i < k; i += 2)
+            {
+                if ((i + 1) < k)
+                    Console.WriteLine(arr[i] + "  *  " + arr[i + 1] + "  =  " + n);
+                else
+                    Console.WriteLine(arr[i] + "  *  " + arr[i] + "  =  " + n);                
+            }
+        }
+    }
+}
