@@ -1,0 +1,35 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp1met
+{
+    class Program
+    {
+        static void VasyaStyle(int x)
+        {
+            int[] num = { 2, 3, 7 };
+            List<int> aranar = new List<int>();
+            for (int i = 0; i < num.Length; ++i)
+            {
+                for (int j = 0; j < num.Length; ++j)
+                {
+                    int a = x - (num[i] * num[j]);
+                    if (a > 0 && num.Contains(a) && !aranar.Contains(num[i] * num[j]))
+                    {
+                        Console.Write("Множетели: ");
+                        Console.WriteLine(num[i] + " * " + num[j] + " + " + a);
+                        aranar.Add(num[i] * num[j]);
+                    }
+                }
+            }
+        }
+        static void Main(string[] args)
+        {
+            int number = int.Parse(Console.ReadLine());
+            VasyaStyle(number);
+        }
+    }
+}
