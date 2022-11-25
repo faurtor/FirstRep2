@@ -1,0 +1,18 @@
+static int[] Opposite(int[] x)
+        {
+           
+        }
+        static void Main(string[] args)
+        {
+            Console.Write("Введите размер массива: ");
+            int n = int.Parse(Console.ReadLine());
+            int[] num = new int[n];
+            Console.WriteLine();
+            Console.Write("Введите массив: ");
+            
+            for (int i = 0; i < n; i++)
+            {
+                num[i] = int.Parse(Console.ReadLine());
+            }
+            Opposite(num);
+        }
