@@ -1,0 +1,59 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp43
+{
+    class MyString 
+    {
+        public string x;
+        public MyString(string k)
+        {
+            x = k;
+        }
+        public void Reverse()
+        {
+            int n = x.Length;
+            for(int i = n-1; i >= 0; i--)
+            {
+                Console.Write(x[i]);
+            }
+            Console.WriteLine();
+        }
+        public void UcFirst()
+        {
+            string b = x;
+            b = char.ToUpper(b[0]) + b.Substring(1);
+            for(int i  = 0; i < b.Length; i++)
+            {
+                Console.Write(b[i]);
+            }
+            Console.WriteLine();
+        }
+        public void UcWords()
+        {
+            string[] stroki = x.Split(' ', ' ');
+            for (int i = 0; i < stroki.Length; i++)
+            {
+                stroki[i] = char.ToUpper(stroki[i][0]) + stroki[i].Substring(1);
+                Console.Write(stroki[i] + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            MyString a = new MyString ( "hello world!" );
+            Console.WriteLine("Ревёрс строки: ");
+            a.Reverse();
+            Console.WriteLine("Первое слово: ");
+            a.UcFirst();
+            Console.WriteLine("Все слова: ");
+            a.UcWords();
+        }
+    }
+}
