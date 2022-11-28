@@ -1,0 +1,45 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp43
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            string a;
+            List<string> b = new List<string>();
+            Console.Write("Введите последовательность: ");
+            a = Console.ReadLine();
+            string[] stroki = a.Split(' ', ' ');
+            for(int i = 0; i < stroki.Length; i++)
+            {
+                if(stroki[i] == "0")
+                {
+                    for(int j  = i+1; j < stroki.Length; j++)
+                    {
+                        if(stroki[j] == "0")
+                        {
+                            for (int g = i + 1; g < j - 1; g++)
+                            {
+                                b.Add(stroki[g]);
+                            }
+                            break;
+                        }
+                        
+                    }
+                    break;
+                }
+                
+            }
+            foreach (var item in b)
+            {
+                Console.Write(item + " ");
+            }
+            Console.WriteLine();
+        }
+    }
+}
