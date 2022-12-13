@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+namespace ConsoleApp4
+{
+    public class Tree
+    {
+        private string a;
+        private int b;
+        public Tree(){a = ""; b = 0;}
+        public Tree(string c, int d){a = c; b = d;}
+        public string A{get{return a;} set{a = value;}}
+        public int B{get{return b;} set{b = value;}}
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var tree1 = new Tree("сосна", -6);
+            var tree2 = new Tree("береза", 80);
+        }
+    }
+}
