@@ -1,0 +1,39 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    public class Watch
+    {
+        public string name;
+        public string electroniks;
+        public decimal dlina;
+        Watch()
+        {
+            name = "";
+            electroniks = "";
+            dlina = 0.0M;
+        }
+        public Watch(string xn, string xe, decimal xd)
+        {
+            name = xn;
+            electroniks = xe;
+            dlina = xd;
+        }
+        public void Print()
+        {
+            Console.WriteLine(name + " " + electroniks + " " + dlina);
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            var myWatch = new Watch("Casio", "electronic", 15.99M);
+            myWatch.Print();
+        }
+    }
+}
