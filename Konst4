@@ -1,0 +1,113 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ConsoleApp5
+{
+    public class Money
+    {
+        public int rub;
+        public int kop;
+        public string obrevr;
+        public string obrevk;
+        Money()
+        {
+            rub = 0;
+            kop = 0;
+            obrevr = "";
+            obrevk = "";
+        }
+        //public Money(int x, string xo)
+        //{
+        //    if(xo == "р.")
+        //    {
+        //        rub = x;
+        //        obrevr = xo;
+        //    }
+        //    else if(xo == "коп.")
+        //    {
+        //        kop = x;
+        //        obrevk = xo;
+        //    }
+        //    else
+        //    {
+        //        Console.WriteLine("Вы не правильно ввели р./коп.!");
+        //    }
+        //}
+        public Money(int xr, string xro, int xk, string xko)
+        {
+            rub = xr;
+            obrevr = xro;
+            kop = xk;
+            obrevk = xko;
+            if(xro == "коп." && xko == "р.")
+            {
+                Console.WriteLine("Рубли и копейки перепутаны местами!");
+            }
+            else if(xr <0 && xk < 0)
+            {
+                Console.WriteLine("Не может быть отрицательным!");
+            }
+            else if(xk > 100)
+            {
+                rub++;
+                kop -= 100; 
+            }    
+        }
+        public static int Sum(Money a, Money b)
+        {
+            Money x = new Money(0, "р." , 0, "коп.");
+            x.rub = a.rub + b.rub;
+            x.kop = a.kop + b.kop;
+            if(x.kop > 100)
+            {
+                x.rub++;
+                x.kop -= 100;
+            }
+            Console.WriteLine(x.rub + x.obrevr + " " + x.kop + x.obrevk);
+            return 0;
+        }
+        public static int Difference(Money a, Money b)
+        {
+            Money x = new Money(0, "р.", 0, "коп.");
+            x.rub = Math.Abs(a.rub - b.rub);
+            x.kop = Math.Abs(a.kop - b.kop);
+            Console.WriteLine(x.rub + x.obrevr + " " + x.kop + x.obrevk);
+            return 0;
+        }
+        public void Print()
+        {
+            if (rub == 0)
+            {
+                Console.WriteLine(kop + obrevk);
+            }
+            else
+            {
+                Console.WriteLine(rub + obrevr +" "+ kop + obrevk);
+            }
+        }
+        public void PrintTransferCost()
+        {
+            Console.WriteLine("Money: " + rub + obrevr + " " + kop + obrevk);
+            Console.WriteLine("Комиссия: 5 %");
+            int n = (rub * 100 + kop);
+            int res = (int)Math.Ceiling(n + n * 0.05);
+            Console.WriteLine($"{res / 100} р. {res % 100} коп.");
+        }
+    }
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Money a = new Money(19, "р.", 12, "коп.");
+            Money b = new Money(27, "р.", 98, "коп.");
+            a.Print();
+            a.PrintTransferCost();
+            Console.WriteLine(Money.Sum(a, b));
+            Console.WriteLine(Money.Difference(a, b));
+
+        }
+    }
+}
